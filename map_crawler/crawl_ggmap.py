@@ -118,7 +118,7 @@ def crawlMaps(searchString, city, lat, lng, nextPage=''):
         crawlMaps(searchString, city, lat=lat, lng=lng, nextPage=nextPageToken)
 
 if __name__ == '__main__':
-    file = open('./test_vn.json', "r")
+    file = open('./vn.json', "r")
     vietnam = json.loads(file.read())
     for city in vietnam:
         keywords = ['giay dep', 'sneakers', 'giay', 'sneaker']
