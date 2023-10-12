@@ -29,4 +29,11 @@ class CrawlerCurlInit
 
         return $ch;
     }
+
+    function csrftoken()
+    {
+        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+        return substr(str_shuffle($chars), 0, strlen($chars));
+    }
 }
