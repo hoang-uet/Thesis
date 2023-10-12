@@ -118,11 +118,14 @@ def crawlMaps(searchString, city, lat, lng, nextPage=''):
         crawlMaps(searchString, city, lat=lat, lng=lng, nextPage=nextPageToken)
 
 if __name__ == '__main__':
-    file = open('./vn.json', "r")
-    vietnam = json.loads(file.read())
-    for city in vietnam:
-        keywords = ['giay dep', 'sneakers', 'giay', 'sneaker']
-        for keyword in keywords:
+    cityFile = open('./vn.json', "r")
+    cities = json.loads(cityFile.read())
+
+    for city in cities:
+        trendKeyWordsFile = open('./trend_keywords.json', "r")
+        trendKeyWords = json.loads(trendKeyWordsFile.read())
+
+        for keyword in trendKeyWords:
             print(city['city'])
             crawlMaps(keyword, city=city['admin_name'], lat=city['lat'], lng=city['lng'])
     file.close()
